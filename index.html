@@ -15,11 +15,44 @@
 <body>
 
   <header id="theHeader">
+    <div id="headerContentMobile">
+      <button id="mobileMenuButton"><span id="mobileMenuIcon">☰</span></button>
+      <a href="#"><img src="resources/logo.png"></a>
+      <button id="bell" class="bell">🔔</button>
+    </div>
 
-    <button id="mobileMenuButton"><span>☰</span></button>
-    <a href="#"><img src="resources/logo.png"></a>
-    <button id="bell">🔔</button>
-
+    <div id="headerContentDesktop">
+      <div>
+        <nav id="desktopLinks">
+          <a href="#"><img src="resources/logo.png"></a>
+          <a href="#">Explore</a>
+          <a href="#">Problems</a>
+          <a href="#">Discuss</a>
+          <a href="#">Contest</a>
+  
+          <button id="interviewButtonDesktop">
+            Interview ▾
+            <div id="interviewDropdownDesktop">
+              <a href="#">👥 Online Interview</a>
+              <a href="#">📔 Assessment</a>
+            </div>
+          </button>
+  
+          <button id="storeButtonDesktop">
+            Store ▾
+            <div id="storeDropdownDesktop" class="coolColor">
+              <a href="#">Redeem</a>
+              <a href="#">Premium</a>
+            </div>
+          </button>
+        </nav>
+      </div>
+      <div id="headerContentDesktopRight">
+        <button id="bell2" class="bell">🔔</button>
+        <a href="#">🔥 0</a>
+        <img src="resources/profile_picture.png">
+      </div>
+    </div>
   </header>
 
   <nav id="mobileMenu">
@@ -80,7 +113,7 @@
         Contest
       </a>
 
-      <button id="interviewDropdownButton">
+      <button id="interviewButton">
         <span>📅</span>
         Interview<span id="interviewArrow">▼</span>
       </button>
@@ -89,7 +122,7 @@
         <a href="#">Assessment</a>
       </div>
 
-      <button id="storeDropdownButton">
+      <button id="storeButton">
         <span>🏪</span>
         Store<span id="storeArrow">▼</span>
       </button>
@@ -260,12 +293,8 @@
 
   </div>
 
-  <div id="animTest">🪙</div>
-
 
   <script defer src="js/classes/DropdownHandler.js"></script>
-  <script defer src="js/classes/MenuHandler.js"></script>
-  <script defer src="js/classes/BellHandler.js"></script>
   <script defer src="js/scripts/main.js"></script>
 
 </body>

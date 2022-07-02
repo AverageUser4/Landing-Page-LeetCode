@@ -1,0 +1,82 @@
+#headerContentDesktop {
+  height: 48px;
+  display: none;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  & > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  button, img {
+    margin-top: 0;
+  }
+}
+
+#desktopLinks {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1rem;
+  & > a, & > button {
+    margin-right: 16px;
+    display: block;
+    color: #aaa;
+    &:hover {
+      color: #fff;
+    }
+  }
+  button {
+    font-size: 1rem;
+    position: relative;
+    &:last-of-type {
+      color: #E99519;
+    }
+    & > div {
+      display: none;
+      text-align: left;
+      position: absolute;
+      top: 30px;
+      left: 0;
+      background-color: #303030;
+      padding: 7px;
+      border-radius: 8px;
+    }
+    a {
+      line-height: 100%;
+      font-size: 0.9rem;
+      color: #aaa;
+      display: block;
+      padding: 5px 10px;
+      white-space: nowrap;
+      border-radius: 5px;
+      &:hover {
+        background-color: #3f3f3f;
+        color: #fff;
+      }
+    }
+  }
+  #interviewButtonDesktop.active {
+    color: #fff;
+  }
+}
+
+.coolColor {
+  a {
+    color: #E99519!important;
+  }
+}
+
+#headerContentDesktopRight {
+  & > button, & > a {
+    display: block;
+    margin-right: 25px;
+    color: #aaa;
+  }
+  img {
+    border-radius: 50%;
+    display: block;
+    &:hover { cursor: pointer; }
+  }
+}

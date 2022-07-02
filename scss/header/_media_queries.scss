@@ -1,0 +1,11 @@
+@media(min-width: 680px) {
+  #headerContentMobile {
+    display: none;
+  }
+  #headerContentDesktop {
+    display: flex;
+  }
+  #notificationsWrapper {
+    right: 100px;
+  }
+}

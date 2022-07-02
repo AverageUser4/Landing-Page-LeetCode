@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+
+    #test {
+      background-color: red;
+      width: 100px;
+      height: 100px;
+      transition: 0.5s linear;
+    }
+
+    #test:hover {
+      cursor: pointer;
+    }
+
+    .op0 {
+      opacity: 0;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div id="test"></div>
+
+
+  <script>
+
+    const test = document.getElementById('test');
+
+    window.addEventListener('click', cool);
+
+    function cool(event) {
+      if(test.style.display == 'block') {
+        test.classList.add('op0');
+        setTimeout(makeDisplayNone, 500);
+      }
+      else {
+        test.style.display = 'block';
+        setTimeout(make1opacity, 10);
+      }
+    }
+
+    function make1opacity() {
+      test.classList.remove('op0');
+    }
+
+    function makeDisplayNone() {
+      test.style.display = 'none';
+    }
+
+  </script>
+
+</body>
+
+</html>
