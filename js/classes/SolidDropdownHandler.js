@@ -1,17 +1,13 @@
 "use strict";
 
-class DropdownHandler {
+class SolidDropdownHandler {
 
   constructor(button_id, dropdown_id, inner_change_id, inner_open, inner_closed) {
     this.button = document.getElementById(button_id);
     this.dropdown = document.getElementById(dropdown_id);
-    this.change_on = false;
-    if(typeof inner_change_id !== 'undefined') {
-      this.inner_change = document.getElementById(inner_change_id);
-      this.open = inner_open;
-      this.closed = inner_closed;
-      this.change_on = true;
-    }
+    this.inner_change = document.getElementById(inner_change_id);
+    this.open = inner_open;
+    this.closed = inner_closed;
 
     this.button.addEventListener('click', (event) => this.toggleDropdown(event));
     this.dropdown.addEventListener('click', (event) => event.stopPropagation());
@@ -20,30 +16,22 @@ class DropdownHandler {
   toggleDropdown(event) {
     event.stopPropagation();
 
-    if(window.getComputedStyle(this.dropdown).opacity === '0')
+    if(window.getComputedStyle(this.dropdown).display === 'none')
       this.openDropdown();
     else
       this.closeDropdown();
   }
 
   openDropdown() {
-    this.dropdown.style.opacity = 1;
-    this.dropdown.style.zIndex = 5;
-    if(this.change_on)
-      this.inner_change.innerHTML = this.open;
-    this.button.classList.add('active');
-
+    this.dropdown.style.display = 'block';
+    this.inner_change.innerHTML = this.open;
     window.addEventListener('click', () => this.closeDropdown());
     window.addEventListener('resize', () => this.closeDropdown());
   }
 
   closeDropdown() {
-    this.dropdown.style.opacity = 0;
-    this.dropdown.style.zIndex = -1;
-    if(this.change_on)
-      this.inner_change.innerHTML = this.closed;
-    this.button.classList.remove('active');
-
+    this.dropdown.style.display = 'none';
+    this.inner_change.innerHTML = this.closed;
     window.removeEventListener('click', () => this.closeDropdown());
     window.removeEventListener('resize', () => this.closeDropdown());
   }

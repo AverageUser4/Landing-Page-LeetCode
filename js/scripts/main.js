@@ -1,20 +1,18 @@
 "use strict";
 
-const interview_dropdown_handler = new DropdownHandler(
+const interview_dropdown_handler = new SolidDropdownHandler(
   'interviewButton', 
   'interviewDropdown',
   'interviewArrow',
   '▲',
-  '▼',
-  0
+  '▼'
 );
-const store_dropdown_handler = new DropdownHandler(
+const store_dropdown_handler = new SolidDropdownHandler(
   'storeButton', 
   'storeDropdown',
   'storeArrow',
   '▲',
-  '▼',
-  0
+  '▼'
 );
 const menu_handler = new DropdownHandler(
   'mobileMenuButton',
@@ -30,4 +28,7 @@ const interview_dropdown_desktop = new DropdownHandler(
 );
 const store_dropdown_desktop = new DropdownHandler(
   'storeButtonDesktop', 'storeDropdownDesktop'
+);
+const profile_menu_desktop = new DropdownHandler(
+  'profileMenuButtonDesktop', 'profileMenuDesktop'
 );

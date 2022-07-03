@@ -1,82 +1,135 @@
 #headerContentDesktop {
-  height: 48px;
   display: none;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  height: inherit;
+  // both left and right side
   & > div {
     display: flex;
     flex-direction: row;
     align-items: center;
   }
-  button, img {
-    margin-top: 0;
+  // right side
+  & > div:last-of-type {
+    // bell and fire
+    & > button, & > a {
+      display: block;
+      margin-right: 25px;
+      span {
+        // number next to fire
+        color: rgba(239,241,246,.75);
+      }
+    }
+    // profile picture
+    img {
+      height: 24px;
+      border-radius: 50%;
+      display: block;
+    }
   }
 }
 
 #desktopLinks {
+  // explore, problems, etc.
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 1rem;
+  // anchors and buttons are supposed to look the same
   & > a, & > button {
-    margin-right: 16px;
     display: block;
-    color: #aaa;
-    &:hover {
-      color: #fff;
-    }
+    margin-right: 16px;
+    color: rgba(239,241,246,.75);
+    &:hover { color: #fff; }
   }
+
+  // buttons activate dropdowns
   button {
-    font-size: 1rem;
     position: relative;
+    // store button
     &:last-of-type {
       color: #E99519;
+      margin: 0;
     }
+    // button's dropdown
     & > div {
-      display: none;
-      text-align: left;
       position: absolute;
       top: 30px;
       left: 0;
-      background-color: #303030;
       padding: 7px;
+      text-align: left;
       border-radius: 8px;
-    }
-    a {
-      line-height: 100%;
-      font-size: 0.9rem;
-      color: #aaa;
-      display: block;
-      padding: 5px 10px;
-      white-space: nowrap;
-      border-radius: 5px;
-      &:hover {
-        background-color: #3f3f3f;
-        color: #fff;
+      background-color: #303030;
+      // dropdown's element
+      & > a {
+        display: block;
+        padding: 5px 10px;
+        line-height: 100%;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        border-radius: 5px;
+        color: rgba(239,241,246,.75);
+        &:hover {
+          background-color: #3f3f3f;
+          color: #fff;
+        }
       }
     }
   }
+  // makes tekst the same as on hover when it's open
   #interviewButtonDesktop.active {
     color: #fff;
   }
 }
 
-.coolColor {
-  a {
-    color: #E99519!important;
+// make links inside store dropdown orange
+#storeDropdownDesktop {
+  & > a { color: #E99519!important; }
+}
+
+// link with fire icon
+#fire {
+  position: relative;
+  // make tooltip visible
+  &:hover > div { 
+    z-index: 5;
+    opacity: 1;
+  }
+  // tooltip that appears on hover
+  & > div {
+    transition: 300ms;
+    z-index: -1;
+    opacity: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    top: 35px;
+    right: 0;
+    width: 260px;
+    padding: 8px 10px;
+    line-height: 130%;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    color: white;
+    background-color: #3c3c3c;
+    & > img {
+      display: block;
+      width: 35px!important;
+      height: 35px!important;
+      margin-right: 10px;
+      filter: grayscale(100%);
+    }
   }
 }
 
-#headerContentDesktopRight {
-  & > button, & > a {
-    display: block;
-    margin-right: 25px;
-    color: #aaa;
-  }
-  img {
-    border-radius: 50%;
-    display: block;
-    &:hover { cursor: pointer; }
-  }
+/* profile menu */
+#profileMenuDesktop {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  width: 310px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #303030;
 }

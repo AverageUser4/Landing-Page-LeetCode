@@ -8,19 +8,33 @@
 
   <style>
 
-    #test {
+    body {
+      background-color: #333;
+    }
+
+    #outerContainer {
+      margin: 200px auto;
+      width: 300px;
+      height: 300px;
+      box-sizing: border-box;
+      border: 3px solid green;
+    }
+
+    #container {
+      justify-content: space-around;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(100,100,100,0.5);
+    }
+
+    #test1, #test2 {
       background-color: red;
       width: 100px;
       height: 100px;
-      transition: 0.5s linear;
     }
-
-    #test:hover {
-      cursor: pointer;
-    }
-
-    .op0 {
-      opacity: 0;
+    #test2 {
+      background-color: blue;
     }
 
   </style>
@@ -29,33 +43,16 @@
 
 <body>
 
-  <div id="test"></div>
+  <div id="outerContainer">
+      <div id="container">
+        <div id="test1"></div>
+        <div id="test2"></div>
+      </div>
+  </div>
 
 
   <script>
 
-    const test = document.getElementById('test');
-
-    window.addEventListener('click', cool);
-
-    function cool(event) {
-      if(test.style.display == 'block') {
-        test.classList.add('op0');
-        setTimeout(makeDisplayNone, 500);
-      }
-      else {
-        test.style.display = 'block';
-        setTimeout(make1opacity, 10);
-      }
-    }
-
-    function make1opacity() {
-      test.classList.remove('op0');
-    }
-
-    function makeDisplayNone() {
-      test.style.display = 'none';
-    }
 
   </script>
 

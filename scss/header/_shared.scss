@@ -5,104 +5,99 @@
   left: 0;
   width: 100%;
   height: 48px;
-  box-sizing: border-box;
   background-color: #282828;
-
-  button, img {
-    height: 26px;
-    line-height: 0;
-    margin-top: 11px;
-  }
-
-  #mobileMenuButton {
-    width: 20px;
-    font-size: 2rem;
-    vertical-align: super;
-    position: relative;
-    span {
-      font-size: 1.2rem;
-      position: absolute;
-      top: 12px;
-      left: 0;
-    }
-  }
-
-  #bell, .bell {
-    font-size: 1.2rem;
-  }
-
-  button {
-    border: none;
-    box-sizing: border-box;
-    background-color: transparent;
-    color: #BDBFC2;
-  }
 }
 
-#headerContentMobile, #headerContentDesktop {
-  padding: 0 20px;
+/* makes contents appear in correct place on bigger screens */
+#headerContentsWrapper {
+  width: min(1200px, 100%);
+  position: relative;
+  margin: auto;
+  display: block;
+}
+
+#headerContentMobile,
+#headerContentDesktop {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: min(1200px, 100%);
+  height: inherit;
+  padding: 0 25px;
+  margin: auto;
 }
 
-#headerContentDesktop {
-  display: none;
+// leetcode logo
+.logo {
+  height: 22px;
+  width: 18px;
 }
-
+// notifications bell
+.bell { font-size: 1.2rem; }
 
 
 /* notifications list */
+@keyframes rotateAnimation {
+  100% { transform: rotateY(180deg); }
+}
+
 #notificationsWrapper {
-  display: none;
   position: fixed;
   top: 52px;
   right: 0;
   width: 440px;
   height: 500px;
-  box-sizing: border-box;
   background-color: #282828;
   border-radius: 8px;
-}
-
-@keyframes rotateAnimation {
-  100% {
-    transform: rotateY(180deg);
-  }
 }
 
 #notificationsContainer {
   padding: 15px;
   height: 450px;
-  box-sizing: border-box;
   overflow: auto;
+  // notification element
   a {
     position: relative;
-    padding: 10px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    padding: 10px;
     border-radius: 8px;
-    color: #EEE;
     font-size: 0.8rem;
+    color: #EEE;
     &:hover {
       background-color: #383838;
-      & > hr {
-        border: none;
-      }
+      // makes border disappear on hover
+      & > hr { border: none; }
     }
-    div:nth-of-type(1) {
+    // icon
+    & > div:nth-of-type(1) {
       font-size: 1.5rem;
       margin-right: 20px;
     }
-    div:nth-of-type(2) {
+    // message
+    & > div:nth-of-type(2) {
       padding-right: 10px;
+      // animated coin
+      & > span:nth-of-type(1) {
+        animation-name: rotateAnimation;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        transition: 1s;
+        display: inline-block;
+      }
+      // amount of coins
+      & > span:nth-of-type(2) { color: #E99519; }
     }
-    div:nth-of-type(3) {
+    // X days ago
+    & > div:nth-of-type(3) {
       color: #AAA;
       width: 150px;
     }
-    hr {
+    // border under every message
+    & > hr {
       position: absolute;
       bottom: 0;
       left: 54px;
@@ -110,37 +105,102 @@
       border-bottom: none;
       border-color: #888;
     }
-    .coin {
-      animation-name: rotateAnimation;
-      animation-duration: 1s;
-      animation-iteration-count: infinite;
-      transition: 1s;
-      display: inline-block;
-    }
-    .coinAmount {
-      color: #E99519;
-    }
   }
 }
 
 #notificationsBottom {
   display: flex;
   justify-content: space-between;
-  background-color: #363636;
   height: 50px;
-  border-radius: 0 0 8px 8px;
-  box-sizing: border-box;
   padding: 12px 20px;
+  border-radius: 0 0 8px 8px;
+  background-color: #363636;
+  // button with gear and button with ...
   a {
     color: #AAA;
     font-size: 1.2rem;
+    // button with gear
     &:first-of-type {
       margin-top: 3px;
       padding: 0 10px;
       border-radius: 20px;
-      &:hover {
-        background-color: #444;
-      }
+      &:hover { background-color: #444; }
     }
   }
+}
+
+/* profile menu */
+.profileInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 15px;
+  // profile picture
+  & > img {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+  // to make it's contents appear to the right of profile picture
+  & > div {
+    // username
+    & > p:first-of-type {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 3px;
+    }
+    // premium promo text
+    & > p:nth-of-type(2) {
+      font-size: 0.75rem;
+      color: #E99519
+    }
+  }
+}
+
+.profileRelatedLinks {
+  // container
+  display: flex;
+  flex-direction: row;
+  overflow: auto;
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: center;
+  // big square button link
+  & > a {
+    display: block;
+    width: 80px;
+    height: 80px;
+    padding-top: 18px;
+    flex-shrink: 0;
+    background-color: #3F3F3F;
+    border-radius: 8px;
+    &:hover { background-color: #454545; }
+    &:not(&:last-of-type) { margin-right: 10px; }
+    // icon
+    & > p:nth-of-type(1) { 
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+    // text under icon
+    & > p:nth-of-type(2) {
+      font-size: 0.7rem;
+      color: #BDBFC2;
+    }
+  }
+}
+
+.verticalLinks {
+  // anchors and buttons are supposed to look the same
+  a, & > button {
+    display: block;
+    margin-bottom: 5px;
+    padding: 10px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    &:hover { background-color: #3F3F3F; }
+    // icon
+    span:nth-of-type(1) { margin-right: 5px; }
+  }
+
 }
