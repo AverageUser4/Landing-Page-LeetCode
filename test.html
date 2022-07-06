@@ -82,9 +82,9 @@
         <div class="slideImage">2</div>
         <div class="slideImage">3</div>
         <div class="slideImage">4</div>
-        <!-- <div class="slideImage">5</div>
+        <div class="slideImage">5</div>
         <div class="slideImage">6</div>
-        <div class="slideImage">7</div> -->
+        <div class="slideImage">7</div>
 
       </div>
   
@@ -112,6 +112,8 @@
     const pages = Math.ceil(slide_images_count / container_capacity);
     let free_space_at_the_end;
 
+    console.log(pages);
+
     let z = container_capacity;
     while(1) {
       if(z >= slide_images_count) {
@@ -121,7 +123,6 @@
       z += container_capacity;
     }
 
-    console.log(free_space_at_the_end);
 
 
     const state = [[], [], [], []];
@@ -174,7 +175,9 @@
 
     function setState(which) {
       for(let i = 0; i < slide_images_count; i++) {
-        all_slide_images[i].style.left = state[which][i];
+        // all_slide_images[i].style.left = state[which][i];
+        all_slide_images[i].style.left = 
+          parseInt(state[which][i]) - parseInt(inner_container.style.left) + '%';
       }
     }
 
@@ -182,12 +185,10 @@
       if(current_page === 1) {
         setState(1);
         current_page = pages;
-        inner_container.style.left = 0;
       }
       else if(current_page === pages) {
-        setState(3);
-        current_page = 1;
-        inner_container.style.left = 0;
+        setState(2);
+        current_page--;
       }
       else
         current_page--;    
@@ -197,15 +198,14 @@
     }
 
     function moveRight() {
+      console.log(current_page);
       if(current_page === 1) {
         setState(0);
-        current_page = pages;
-        inner_container.style.left = 0;
+        current_page++;
       }
       else if(current_page === pages) {
-        setState(2);
+        setState(3);
         current_page = 1;
-        inner_container.style.left = 0;
       }
       else
         current_page++;
