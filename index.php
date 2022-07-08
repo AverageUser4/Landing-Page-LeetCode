@@ -165,14 +165,157 @@ function renderProfileInfo() {
 
   <div id="mainContentWrapper">
 
-    <main></main>
+    <main id="theMain">
+			
+		  <div id="slideBarAndButtons1">
+					<div class="slideButtonsContainer">
+						<button id="right1">&gt;</button>
+						<button id="left1">&lt;</button>
+					</div>
 
-    <aside></aside>
+					<div id="slideContainer1">
+						<div id="slideInnerContainer1">
+							<a class="slideImage1" href="#"><img src="resources/s1a.png"></a>
+							<a class="slideImage1" href="#"><img src="resources/s1b.png"></a>
+							<a class="slideImage1" href="#"><img src="resources/s1c.png"></a>
+							<a class="slideImage1" href="#"><img src="resources/s1d.png"></a>
+						</div>
+					</div>
+			</div>
+
+      <div id="slideBarAndButtons2">
+					<div class="slideButtonsContainer">
+						<button id="right2">&gt;</button>
+						<button id="left2">&lt;</button>
+					</div>
+
+					<div id="slideContainer2">
+						<div id="slideInnerContainer2">
+              <a class="slideImage2" href="#">
+                <img src="resources/s2a.png">
+                <p>LeetCode 75 Study Plan to Ace Interviews</p>
+              </a>
+							<a class="slideImage2" href="#">
+                <img src="resources/s2b.webp">
+                <p>14 Days Study Plan to Crack Algo</p>
+              </a>
+							<a class="slideImage2" href="#">
+                <img src="resources/s2c.webp">
+                <p>2 Weeks Study Plan to Tackle DS</p>
+              </a>
+							<a class="slideImage2" href="#">
+                <img src="resources/s2d.png">
+                <p>SQL Study Plan</p>
+              </a>
+							<a class="slideImage2" href="#">
+                <img src="resources/s2e.webp">
+                <p>Ultimate DP Study Plan</p>
+              </a>
+							<a class="slideImage2" href="#">
+                <img src="resources/s2f.png">
+                <p>Programming Skills Study Plan</p>
+              </a>
+							<a class="slideImage2" href="#">
+                <img src="resources/s2g.png">
+                <p>Graph Theory Study Plan</p>
+              </a>
+							<a class="slideImage2" href="#">
+                <img src="resources/s2h.png">
+                <p>Binary Search Study Plan</p>
+              </a>
+						</div>
+					</div>
+			</div>
+
+      <hr>
+
+      <div id="problemTypesContainer">
+        <button id="problemTypesButton">Expand ▾</button>
+        <?php echo str_repeat('
+          <a href="#">Array <span>1142</span></a>
+          <a href="#">String <span>549</span></a>
+          <a href="#">Math <span>392</span></a>
+          <a href="#">Dynamic Programming <span>383</span></a>
+          <a href="#">Sorting <span>253</span></a>
+          <a href="#">Depth-First Search <span>250</span></a>', 13); 
+        ?>
+      </div>
+
+      <div id="problemGroupsLinks">
+        <button id="problemGroupsLinksButton">&gt;&gt;</button>
+        <div id="problemGroupsLinksInner">
+          <a class="chosen" href="#">All Topics</a>
+          <a href="#">Algorithms</a>
+          <a href="#">Database</a>
+          <a href="#">Shell</a>
+          <a href="#">Concurrency</a>
+        </div>
+      </div>
+
+      <div id="problemsParametersChoosersContainer">
+        <div class="chooserTypeOne">
+          <button id="listsButton">Lists</button>
+          <ul id="listsDropdown">
+            <li><button>LeetCode Curated Algo 170</button></li>
+            <li><button>LeetCode Curated SQL 70</button></li>
+            <li><button>Top 100 Liked Questions</button></li>
+            <li><button>Top Interview Questions</button></li>
+            <li><button>Favorite</button></li>
+          </ul>
+        </div>
+        <div class="chooserTypeOne">
+          <button id="difficultyButton">Difficulty</button>
+          <ul id="difficultyDropdown">
+            <li><button id="easyDifficultyButton">Easy</button></li>
+            <li><button id="mediumDifficultyButton">Medium</button></li>
+            <li><button id="hardDifficultyButton">Hard</button></li>
+          </ul>
+        </div>
+        <div class="chooserTypeOne">
+          <button id="statusButton">Status</button>
+          <ul id="statusDropdown">
+            <li><button><span>─</span>Todo</button></li>
+            <li><button><span>✓</span>Solved</button></li>
+            <li><button><span>٨</span>Attempted</button></li>
+          </ul>
+        </div>
+        <div class="chooserTypeTwo">
+          <button id="tagsButton">Tags</button>
+          <div id="tagsDropdown">
+            <input type="text" placeholder="Filter topics">
+            <button id="topicsButton" class="chosen">Topics</button>
+            <button id="companiesButton" class="blocked">Companies</button>
+            <div id="anotherProblemTypesContainer">
+              <?php echo str_repeat('
+                <a href="#">Array</a>
+                <a href="#">String</a>
+                <a href="#">Math</a>
+                <a href="#">Dynamic Programming</a>
+                <a href="#">Sorting</a>
+                <a href="#">Depth-First Search</a>', 13); 
+              ?>
+            </div>
+            <button id="anotherProblemTypesButton">Expand</button>
+            <hr>
+            <button id="searchResetButton">↺ Reset</button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <aside id="theAside">
+      <div style="background-color:red;width:100%;height:100px;"></div>
+    </aside>
 
   </div>
 
   <script defer src="js/classes/DropdownHandler.js"></script>
   <script defer src="js/classes/SolidDropdownHandler.js"></script>
+  <script defer src="js/classes/SlideBarHandler.js"></script>
+  <script defer src="js/classes/ProblemTypesContainerHandler.js"></script>
+  <script defer src="js/classes/ProblemGroupsLinksHandler.js"></script>
+  <script defer src="js/classes/ExpandHandler.js"></script>
   <script defer src="js/scripts/main.js"></script>
 
 </body>

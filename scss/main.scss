@@ -1,5 +1,9 @@
 @use '_universal';
-@use 'header/_shared';
-@use 'header/_mobile_only';
-@use 'header/_desktop_only';
-@use 'header/_media_queries';
+@use 'header/_header_shared';
+@use 'header/_header_mobile_only';
+@use 'header/_header_desktop_only';
+@use 'header/_header_media_queries';
+
+@use 'content/_content_shared';
+@use 'content/_content_slidebar';
+@use 'content/_content_media_queries';

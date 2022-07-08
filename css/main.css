@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +12,6 @@
 
 body {
   background-color: #1A1A1A;
-  height: 3000px;
   color: white;
 }
 
@@ -32,6 +32,18 @@ button {
 
 img:hover {
   cursor: pointer;
+}
+
+input[type=text] {
+  background-image: url("../resources/search_icon.png");
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+  display: block;
+  padding: 5px 30px;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  border-radius: 5px;
 }
 
 .dropdown {
@@ -67,7 +79,7 @@ img:hover {
   position: relative;
   width: min(1200px, 100%);
   height: inherit;
-  padding: 0 25px;
+  padding: 0 20px;
   margin: auto;
 }
 
@@ -432,6 +444,360 @@ img:hover {
   }
   .profileRelatedLinks a {
     margin: 0 0 15px !important;
+  }
+}
+#mainContentWrapper {
+  display: block;
+  margin: 80px auto 0;
+  width: min(100%, 1200px);
+  height: 48px;
+}
+
+#theAside, #theMain {
+  height: 1000px;
+  width: 100%;
+}
+
+#theAside {
+  padding-right: 20px;
+  background-color: blue;
+}
+
+#theMain {
+  background-color: green;
+  padding: 0 20px;
+}
+#theMain > hr {
+  border-bottom: none;
+  border-color: #3d3d3d;
+  margin-bottom: 30px;
+}
+
+#problemTypesContainer {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  height: 2rem;
+  margin-bottom: 30px;
+}
+#problemTypesContainer > button {
+  box-shadow: -14px 0px 19px 14px rgb(26, 26, 26);
+  display: block;
+  height: 2rem;
+  background-color: #1a1a1a;
+  position: absolute;
+  top: 0;
+  bottom: auto;
+  right: 0;
+  padding: 0 10px;
+  color: #A3A4A6;
+}
+#problemTypesContainer > a {
+  flex-shrink: 0;
+  display: block;
+  margin-right: 15px;
+  line-height: 200%;
+}
+#problemTypesContainer > a:hover {
+  color: #0E80E1;
+}
+#problemTypesContainer > a:hover > span {
+  background-color: #182E44;
+  color: #0E80E1;
+}
+#problemTypesContainer > a > span {
+  color: #A3A4A6;
+  font-size: 0.8rem;
+  padding: 3px 5px;
+  border-radius: 15px;
+  background-color: #323232;
+}
+
+#problemGroupsLinks {
+  position: relative;
+}
+#problemGroupsLinks > button {
+  position: absolute;
+  right: 0;
+  height: calc(1.2rem + 20px);
+  padding: 0 10px;
+  background-color: #1a1a1a;
+  color: #A3A4A6;
+  box-shadow: -3px 0px 19px 14px rgb(26, 26, 26);
+}
+
+#problemGroupsLinksInner {
+  display: flex;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+#problemGroupsLinksInner > a {
+  flex-shrink: 0;
+  display: block;
+  padding: 10px 15px;
+  margin-right: 15px;
+  font-size: 1.2rem;
+  border-radius: 30px;
+  background-color: #323232;
+  color: #BDBEBC;
+}
+#problemGroupsLinksInner > a:hover {
+  background-color: #3b3b3b;
+}
+#problemGroupsLinksInner > a:last-of-type {
+  margin-right: 60px;
+}
+#problemGroupsLinksInner > a.chosen {
+  color: #262626;
+  background-color: #fff;
+}
+#problemGroupsLinksInner > a.chosen:hover {
+  background-color: #fff;
+}
+
+#problemsParametersChoosersContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+#problemsParametersChoosersContainer > div {
+  position: relative;
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+#problemsParametersChoosersContainer > div > button {
+  font-size: 1rem;
+  padding: 10px;
+  background-color: #323232;
+  color: #c0c2c5;
+  border-radius: 8px;
+}
+#problemsParametersChoosersContainer > div > button:hover {
+  background-color: #3b3b3b;
+}
+#problemsParametersChoosersContainer > div > button::after {
+  content: "▽";
+  margin-left: 10px;
+  display: inline-block;
+  transition: 300ms;
+  font-size: 1.1rem;
+}
+#problemsParametersChoosersContainer > div > button.active::after {
+  transform: rotateZ(180deg);
+}
+#problemsParametersChoosersContainer > div > ul, #problemsParametersChoosersContainer > div > div {
+  position: absolute;
+  top: calc(100% + 2px);
+  transition: 300ms;
+  padding: 10px;
+  background-color: #303030;
+  border-radius: 8px;
+}
+#problemsParametersChoosersContainer > div.chooserTypeOne > ul {
+  list-style-type: none;
+}
+#problemsParametersChoosersContainer > div.chooserTypeOne > ul button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  text-align: left;
+  color: #f2f2f2;
+  border-radius: 8px;
+}
+#problemsParametersChoosersContainer > div.chooserTypeOne > ul button:hover {
+  background-color: #3f3f3f;
+}
+#problemsParametersChoosersContainer > div.chooserTypeOne #listsDropdown {
+  width: 270px;
+}
+#problemsParametersChoosersContainer > div.chooserTypeOne #difficultyDropdown {
+  width: 140px;
+}
+#problemsParametersChoosersContainer > div.chooserTypeOne #difficultyDropdown #easyDifficultyButton {
+  color: #03b39e;
+}
+#problemsParametersChoosersContainer > div.chooserTypeOne #difficultyDropdown #mediumDifficultyButton {
+  color: #F3BF1E;
+}
+#problemsParametersChoosersContainer > div.chooserTypeOne #difficultyDropdown #hardDifficultyButton {
+  color: #A73D3F;
+}
+#problemsParametersChoosersContainer > div.chooserTypeOne #statusDropdown {
+  width: 160px;
+}
+#problemsParametersChoosersContainer > div.chooserTypeOne #statusDropdown span {
+  display: inline-block;
+  width: 20px;
+}
+#problemsParametersChoosersContainer > div.chooserTypeOne #statusDropdown li:nth-of-type(1) span {
+  color: #A3A4A6;
+}
+#problemsParametersChoosersContainer > div.chooserTypeOne #statusDropdown li:nth-of-type(2) span {
+  color: #03b39e;
+}
+#problemsParametersChoosersContainer > div.chooserTypeOne #statusDropdown li:nth-of-type(3) span {
+  color: #F3BF1E;
+}
+
+#tagsDropdown {
+  width: 400px;
+}
+#tagsDropdown > input {
+  margin-bottom: 20px;
+  width: 100%;
+  background-color: #454545;
+  color: #babbbe;
+}
+#tagsDropdown > input:focus {
+  background-color: #4e4e4e;
+}
+#tagsDropdown ::placeholder {
+  color: #757266;
+  opacity: 1;
+}
+#tagsDropdown :-ms-input-placeholder {
+  color: #757266;
+}
+#tagsDropdown ::-ms-input-placeholder {
+  color: #757266;
+}
+#tagsDropdown button:nth-of-type(1), #tagsDropdown button:nth-of-type(2) {
+  display: inline-block;
+  color: #b0b5b7;
+  margin-right: 15px;
+  font-size: 1rem;
+}
+#tagsDropdown button.chosen {
+  color: white;
+  text-decoration: 2px underline;
+  text-underline-offset: 8px;
+}
+#tagsDropdown button.blocked:hover {
+  cursor: not-allowed;
+}
+#tagsDropdown button.blocked::after {
+  content: "🔒";
+  margin-left: 5px;
+  cursor: pointer;
+}
+#tagsDropdown hr {
+  border-color: #888;
+  border-bottom: none;
+  margin-bottom: 10px;
+}
+
+#anotherProblemTypesContainer {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  height: 93px;
+}
+#anotherProblemTypesContainer > a {
+  display: block;
+  flex-shrink: 0;
+  margin: 0 5px 10px 0;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  border-radius: 15px;
+  background-color: #454545;
+  color: #b0b5b7;
+  transition: 300ms;
+}
+#anotherProblemTypesContainer > a:hover {
+  background-color: #4e4e4e;
+}
+
+#anotherProblemTypesButton {
+  margin: 12px 0;
+  color: rgb(10, 132, 255);
+}
+
+#searchResetButton {
+  width: 100%;
+  text-align: right;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+#slideBarAndButtons1 {
+  margin-bottom: 30px;
+}
+
+.slideButtonsContainer {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 10px;
+}
+.slideButtonsContainer > button {
+  color: #BEC0C3;
+  background-color: #2b2b2b;
+  border-radius: 3px;
+  padding: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  width: 30px;
+  height: 30px;
+}
+.slideButtonsContainer > button:hover {
+  background-color: #323232;
+}
+.slideButtonsContainer > button:first-of-type {
+  margin-left: 5px;
+}
+
+#slideContainer1, #slideContainer2 {
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  width: inherit;
+}
+
+#slideInnerContainer1, #slideInnerContainer2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+.slideImage1, .slideImage2 {
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.slideImage1 > img, .slideImage2 > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.slideImage2 > img {
+  height: 87%;
+}
+.slideImage2 > p {
+  width: 100%;
+  font-size: 0.9rem;
+  text-align: center;
+  position: absolute;
+  top: 105%;
+  line-height: 120%;
+}
+
+@media (min-width: 680px) {
+  #mainContentWrapper {
+    display: flex;
+    margin-top: 30px;
+  }
+  #theMain {
+    width: 70%;
+  }
+  #theAside {
+    width: 30%;
   }
 }
 

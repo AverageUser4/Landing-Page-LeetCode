@@ -3,13 +3,13 @@
 class SlideBarHandler {
 
   constructor(
-      container_id = 'slideContainer',
-      inner_container_id = 'slideInnerContainer',
-      element_class = 'slideImage',
-      left_button_id = 'left',
-      right_button_id = 'right',
+      container_id = 'slideContainer1',
+      inner_container_id = 'slideInnerContainer1',
+      element_class = 'slideImage1',
+      left_button_id = 'left1',
+      right_button_id = 'right1',
       aspect_ratio = 1 / 2,
-      container_capacities = [{min: 0, max: 640, capacity: 2}, {min: 641, max: 999999, capacity: 3}]
+      container_capacities = [{min: 0, max: 880, capacity: 2}, {min: 881, max: 999999, capacity: 3}]
     ) {
     this.aspect_ratio = aspect_ratio;
     this.container_capacities = container_capacities;
@@ -143,6 +143,3 @@ class SlideBarHandler {
   }
 
 }
-
-
-const slide_bar_handler = new SlideBarHandler();

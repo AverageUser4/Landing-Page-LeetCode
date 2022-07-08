@@ -2,7 +2,10 @@
 
 class DropdownHandler {
 
+  static all_handlers = [];
+
   constructor(button_id, dropdown_id, inner_change_id, inner_open, inner_closed) {
+    DropdownHandler.all_handlers.push(this);
     this.button = document.getElementById(button_id);
     this.dropdown = document.getElementById(dropdown_id);
     this.change_on = false;
@@ -20,8 +23,11 @@ class DropdownHandler {
   toggleDropdown(event) {
     event.stopPropagation();
 
-    if(window.getComputedStyle(this.dropdown).opacity === '0')
+    if(window.getComputedStyle(this.dropdown).opacity === '0') {
+      for(let val of DropdownHandler.all_handlers)
+        val.closeDropdown();
       this.openDropdown();
+    }
     else
       this.closeDropdown();
   }

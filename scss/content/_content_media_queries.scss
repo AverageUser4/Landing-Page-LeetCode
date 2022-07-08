@@ -1,0 +1,12 @@
+@media(min-width: 680px) {
+  #mainContentWrapper {
+    display: flex;
+    margin-top: 30px;
+  }
+  #theMain {
+    width: 70%;
+  }
+  #theAside {
+    width: 30%;
+  }
+}

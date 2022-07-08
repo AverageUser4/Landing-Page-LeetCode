@@ -1,3 +1,0 @@
-to że notifications jest w złym miejscu w widoku
-desktop jest spowodowane tym, że header nie ma już 
-position fixed (raczej)
