@@ -55,6 +55,7 @@ input[type=text] {
 /* header and its contents */
 #theHeader {
   position: fixed;
+  z-index: 10;
   top: 0;
   left: 0;
   width: 100%;
@@ -380,14 +381,10 @@ input[type=text] {
   position: relative;
 }
 #fire:hover > div {
-  z-index: 5;
-  opacity: 1;
+  display: flex;
 }
 #fire > div {
-  transition: 300ms;
-  z-index: -1;
-  opacity: 0;
-  display: flex;
+  display: none;
   flex-direction: row;
   align-items: center;
   position: absolute;
@@ -453,18 +450,7 @@ input[type=text] {
   height: 48px;
 }
 
-#theAside, #theMain {
-  height: 1000px;
-  width: 100%;
-}
-
-#theAside {
-  padding-right: 20px;
-  background-color: blue;
-}
-
 #theMain {
-  background-color: green;
   padding: 0 20px;
 }
 #theMain > hr {
@@ -556,47 +542,131 @@ input[type=text] {
   background-color: #fff;
 }
 
+#slideBarAndButtons1 {
+  margin-bottom: 30px;
+}
+
+.slideButtonsContainer {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 10px;
+}
+.slideButtonsContainer > button {
+  color: #BEC0C3;
+  background-color: #2b2b2b;
+  border-radius: 3px;
+  padding: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  width: 30px;
+  height: 30px;
+}
+.slideButtonsContainer > button:hover {
+  background-color: #323232;
+}
+.slideButtonsContainer > button:first-of-type {
+  margin-left: 5px;
+}
+
+#slideContainer1, #slideContainer2 {
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  width: inherit;
+}
+
+#slideInnerContainer1, #slideInnerContainer2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+.slideImage1, .slideImage2 {
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.slideImage1 > img, .slideImage2 > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.slideImage2 > img {
+  height: 87%;
+}
+.slideImage2 > p {
+  width: 100%;
+  font-size: 0.9rem;
+  text-align: center;
+  position: absolute;
+  top: 105%;
+  line-height: 120%;
+}
+
 #problemsParametersChoosersContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+#problemsParametersChoosersInnerFirst {
   display: flex;
   flex-wrap: wrap;
 }
-#problemsParametersChoosersContainer > div {
+#problemsParametersChoosersInnerFirst > div {
   position: relative;
   flex-shrink: 0;
-  margin-right: 10px;
+  margin: 0 10px 10px 0;
 }
-#problemsParametersChoosersContainer > div > button {
-  font-size: 1rem;
-  padding: 10px;
+#problemsParametersChoosersInnerFirst > div > button, #problemsParametersChoosersInnerFirst > div > input {
   background-color: #323232;
   color: #c0c2c5;
   border-radius: 8px;
 }
-#problemsParametersChoosersContainer > div > button:hover {
+#problemsParametersChoosersInnerFirst > div > button:hover, #problemsParametersChoosersInnerFirst > div > input:hover {
   background-color: #3b3b3b;
 }
-#problemsParametersChoosersContainer > div > button::after {
+#problemsParametersChoosersInnerFirst > div > button {
+  padding: 10px;
+  font-size: 1rem;
+}
+#problemsParametersChoosersInnerFirst > div > button::after {
   content: "▽";
   margin-left: 10px;
   display: inline-block;
   transition: 300ms;
   font-size: 1.1rem;
 }
-#problemsParametersChoosersContainer > div > button.active::after {
+#problemsParametersChoosersInnerFirst > div > button.active::after {
   transform: rotateZ(180deg);
 }
-#problemsParametersChoosersContainer > div > ul, #problemsParametersChoosersContainer > div > div {
+#problemsParametersChoosersInnerFirst > div > input {
+  height: 36px;
+  background-position-y: 3px;
+}
+#problemsParametersChoosersInnerFirst > div > input:focus {
+  background-color: #3b3b3b;
+}
+#problemsParametersChoosersInnerFirst > div > ul, #problemsParametersChoosersInnerFirst > div > div {
   position: absolute;
   top: calc(100% + 2px);
+  opacity: 0;
+  z-index: -1;
   transition: 300ms;
   padding: 10px;
   background-color: #303030;
   border-radius: 8px;
 }
-#problemsParametersChoosersContainer > div.chooserTypeOne > ul {
+#problemsParametersChoosersInnerFirst > div.chooserTypeOne > ul {
   list-style-type: none;
 }
-#problemsParametersChoosersContainer > div.chooserTypeOne > ul button {
+#problemsParametersChoosersInnerFirst > div.chooserTypeOne > ul button {
   display: block;
   width: 100%;
   padding: 8px;
@@ -604,39 +674,55 @@ input[type=text] {
   color: #f2f2f2;
   border-radius: 8px;
 }
-#problemsParametersChoosersContainer > div.chooserTypeOne > ul button:hover {
+#problemsParametersChoosersInnerFirst > div.chooserTypeOne > ul button:hover {
   background-color: #3f3f3f;
 }
-#problemsParametersChoosersContainer > div.chooserTypeOne #listsDropdown {
+#problemsParametersChoosersInnerFirst > div.chooserTypeOne #listsDropdown {
   width: 270px;
 }
-#problemsParametersChoosersContainer > div.chooserTypeOne #difficultyDropdown {
+#problemsParametersChoosersInnerFirst > div.chooserTypeOne #difficultyDropdown {
   width: 140px;
 }
-#problemsParametersChoosersContainer > div.chooserTypeOne #difficultyDropdown #easyDifficultyButton {
+#problemsParametersChoosersInnerFirst > div.chooserTypeOne #difficultyDropdown #easyDifficultyButton {
   color: #03b39e;
 }
-#problemsParametersChoosersContainer > div.chooserTypeOne #difficultyDropdown #mediumDifficultyButton {
+#problemsParametersChoosersInnerFirst > div.chooserTypeOne #difficultyDropdown #mediumDifficultyButton {
   color: #F3BF1E;
 }
-#problemsParametersChoosersContainer > div.chooserTypeOne #difficultyDropdown #hardDifficultyButton {
+#problemsParametersChoosersInnerFirst > div.chooserTypeOne #difficultyDropdown #hardDifficultyButton {
   color: #A73D3F;
 }
-#problemsParametersChoosersContainer > div.chooserTypeOne #statusDropdown {
+#problemsParametersChoosersInnerFirst > div.chooserTypeOne #statusDropdown {
   width: 160px;
 }
-#problemsParametersChoosersContainer > div.chooserTypeOne #statusDropdown span {
+#problemsParametersChoosersInnerFirst > div.chooserTypeOne #statusDropdown span {
   display: inline-block;
   width: 20px;
 }
-#problemsParametersChoosersContainer > div.chooserTypeOne #statusDropdown li:nth-of-type(1) span {
+#problemsParametersChoosersInnerFirst > div.chooserTypeOne #statusDropdown li:nth-of-type(1) span {
   color: #A3A4A6;
 }
-#problemsParametersChoosersContainer > div.chooserTypeOne #statusDropdown li:nth-of-type(2) span {
+#problemsParametersChoosersInnerFirst > div.chooserTypeOne #statusDropdown li:nth-of-type(2) span {
   color: #03b39e;
 }
-#problemsParametersChoosersContainer > div.chooserTypeOne #statusDropdown li:nth-of-type(3) span {
+#problemsParametersChoosersInnerFirst > div.chooserTypeOne #statusDropdown li:nth-of-type(3) span {
   color: #F3BF1E;
+}
+#problemsParametersChoosersInnerFirst > div.chooserTypeOne #optionsDropdown {
+  width: 200px;
+  right: 0;
+}
+#problemsParametersChoosersInnerFirst > div.chooserTypeOne #optionsDropdown span {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 5px;
+  vertical-align: -12%;
+  background-color: #555;
+  border-radius: 3px;
+}
+#problemsParametersChoosersInnerFirst > div.chooserTypeOne #optionsDropdown > li:nth-of-type(2) > button {
+  color: #FFA116;
 }
 
 #tagsDropdown {
@@ -720,72 +806,188 @@ input[type=text] {
   margin-bottom: 5px;
 }
 
-#slideBarAndButtons1 {
-  margin-bottom: 30px;
+#problemsParametersChoosersInnerSecond {
+  flex-shrink: 0;
+}
+#problemsParametersChoosersInnerSecond #pickOneButton span:nth-of-type(1) {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  font-size: 1.8rem;
+  padding-top: 3px;
+  border-radius: 50%;
+  color: white;
+  background-color: #34C165;
+  box-shadow: 0px 0px 38px 1px rgb(52, 193, 101);
+}
+#problemsParametersChoosersInnerSecond #pickOneButton span:nth-of-type(2) {
+  color: #288130;
+  margin-left: 10px;
+  vertical-align: 4px;
 }
 
-.slideButtonsContainer {
-  display: flex;
-  flex-direction: row-reverse;
-  margin-bottom: 10px;
+#problemsTableContainer {
+  overflow: auto;
 }
-.slideButtonsContainer > button {
-  color: #BEC0C3;
+
+#problemsTable {
+  font-size: 0.9rem;
+  width: 800px;
+  text-align: left;
+  border-collapse: collapse;
+}
+#problemsTable tr {
+  height: 46px;
+}
+#problemsTable tr:nth-of-type(odd) {
   background-color: #2b2b2b;
-  border-radius: 3px;
-  padding: 5px;
+}
+#problemsTable tr:first-of-type {
+  background-color: transparent;
+}
+#problemsTable th:first-of-type, #problemsTable td:first-of-type {
+  padding-left: 8px;
+}
+#problemsTable th:last-of-type, #problemsTable td:last-of-type {
+  padding-right: 8px;
+}
+#problemsTable th {
+  color: #BDBB9D;
+  font-weight: normal;
+  border-bottom: 1px solid #2b2b2b;
+}
+#problemsTable .longestColumn {
+  max-width: 170px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#problemsTable td.longestColumn {
+  padding-right: 20px;
+}
+#problemsTable td:last-of-type span {
+  display: inline-block;
+  width: 100%;
+  height: 0.7rem;
   font-size: 1rem;
-  font-weight: bold;
+  line-height: 60%;
+  text-align: center;
+  background-color: #414141;
+  border-radius: 8px;
+}
+#problemsTable td:nth-of-type(1),
+#problemsTable td:nth-of-type(3) {
+  color: #505050;
+}
+
+th.changableOrder {
+  position: relative;
+}
+th.changableOrder:hover {
+  color: #d3d3d3 !important;
+  cursor: pointer;
+}
+th.changableOrder span {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 1.4rem;
+}
+
+td.tableEasy {
+  color: #03b39e;
+}
+
+td.tableMedium {
+  color: #F3BF1E;
+}
+
+td.tableHard {
+  color: #A73D3F;
+}
+
+#paginationAndPagesAmountContainer {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+}
+
+#pagesAmountContainer {
+  position: relative;
+}
+
+#pagesAmountButton {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  background-color: #323232;
+  color: #B6B7BA;
+}
+#pagesAmountButton:hover {
+  background-color: #3b3b3b;
+}
+#pagesAmountButton > span {
+  margin-left: 12px;
+}
+
+#pagesAmountDropdown {
+  opacity: 0;
+  z-index: -1;
+  transition: 300ms;
+  position: absolute;
+  top: calc(100% + 3px);
+  padding: 8px;
+  width: 120%;
+  background-color: #303030;
+  border-radius: 5px;
+}
+#pagesAmountDropdown > button {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  color: #fff;
+  border-radius: 3px;
+  text-align: left;
+}
+#pagesAmountDropdown > button:hover {
+  background-color: #3f3f3f;
+}
+
+#paginationContainer {
+  display: flex;
+  margin-bottom: 20px;
+}
+#paginationContainer > button {
+  display: block;
+  margin-left: 5px;
   width: 30px;
   height: 30px;
-}
-.slideButtonsContainer > button:hover {
-  background-color: #323232;
-}
-.slideButtonsContainer > button:first-of-type {
-  margin-left: 5px;
-}
-
-#slideContainer1, #slideContainer2 {
-  position: relative;
-  margin: auto;
-  overflow: hidden;
-  width: inherit;
-}
-
-#slideInnerContainer1, #slideInnerContainer2 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transition: 300ms;
-}
-
-.slideImage1, .slideImage2 {
-  display: block;
-  box-sizing: border-box;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.slideImage1 > img, .slideImage2 > img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-}
-
-.slideImage2 > img {
-  height: 87%;
-}
-.slideImage2 > p {
-  width: 100%;
   font-size: 0.9rem;
-  text-align: center;
-  position: absolute;
-  top: 105%;
-  line-height: 120%;
+  background-color: #303030;
+  color: #C2C4C7;
+  border-radius: 3px;
+}
+#paginationContainer > button:hover {
+  background-color: #3b3b3b;
+}
+#paginationContainer > button.chosen {
+  background-color: #5c5c5c;
+  color: white;
+}
+#paginationContainer > button.chosen:hover {
+  cursor: default;
+}
+#paginationContainer > button.disabled {
+  background-color: #232323;
+  color: #5C5D5E;
+}
+#paginationContainer > button.disabled:hover {
+  cursor: default;
+}
+#paginationContainer > button.disappearing {
+  display: none;
 }
 
 @media (min-width: 680px) {
@@ -798,6 +1000,81 @@ input[type=text] {
   }
   #theAside {
     width: 30%;
+  }
+  #paginationAndPagesAmountContainer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  #paginationAndPagesAmountContainer > #paginationContainer {
+    margin: 0;
+  }
+}
+@media (min-width: 820px) {
+  #paginationContainer > button.disappearing {
+    display: block;
+  }
+}
+#theAside {
+  height: 5000px;
+  background-color: blue;
+  padding: 0 20px;
+}
+#theAside > div {
+  margin: 0 auto 20px;
+  background-color: #282828;
+  border-radius: 8px;
+}
+
+#statsContainer {
+  padding: 15px;
+}
+#statsContainer > div:first-of-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+#statsContainer > div:first-of-type > div {
+  color: #bdbfc2;
+  font-size: 0.9rem;
+}
+#statsContainer > div:first-of-type > a {
+  position: relative;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  background-color: #3e3e3e;
+  color: #9C9EA1;
+}
+#statsContainer > div:first-of-type > a > span:first-of-type {
+  margin-right: 15px;
+}
+#statsContainer > div:first-of-type > a > span:nth-of-type(2) {
+  position: absolute;
+  top: 0;
+  right: 28px;
+  display: inline-block;
+  width: 1px;
+  height: 25px;
+  background-color: #282828;
+}
+#statsContainer > div:nth-of-type(2) {
+  display: flex;
+}
+
+#progressWheelContainer {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+#progressWheelContainer > svg {
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 680px) {
+  #theAside {
+    padding: 0 20px 0 0;
   }
 }
 

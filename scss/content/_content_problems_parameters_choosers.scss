@@ -1,0 +1,200 @@
+#problemsParametersChoosersContainer {
+  display: flex;
+  justify-content: space-between;
+}
+#problemsParametersChoosersInnerFirst {
+  display: flex;
+  flex-wrap: wrap;
+  // container for button and dropdown (every type)
+  & > div {
+    position: relative;
+    flex-shrink: 0;
+    margin: 0 10px 10px 0;
+    // style for buttons and input that appears next to them
+    & > button, & > input {
+      background-color: #323232;
+      color: #c0c2c5;
+      border-radius: 8px;
+      &:hover { background-color: #3b3b3b; }
+    }
+    // button that activates dropdown
+    & > button {
+      padding: 10px;
+      font-size: 1rem;
+      &::after {
+        content: '▽';
+        margin-left: 10px;
+        display: inline-block;
+        transition: 300ms;
+        font-size: 1.1rem;
+      }
+    }
+    & > button.active {
+      &::after { transform: rotateZ(180deg); }
+    }
+    // text input
+    & > input {
+      height: 36px;
+      background-position-y: 3px;
+      &:focus { background-color: #3b3b3b; }
+    }
+    // dropdown
+    & > ul, & > div {
+      position: absolute;
+      top: calc(100% + 2px);
+      opacity: 0;
+      z-index: -1;
+      transition: 300ms;
+      padding: 10px;
+      background-color: #303030;
+      border-radius: 8px;
+    }
+  }
+  // container for button and dropdown (first type)
+  & > div.chooserTypeOne {
+    // dropdown
+    & > ul {
+      list-style-type: none;
+      // every element in the dropdown (for first type)
+      button {
+        display: block;
+        width: 100%;
+        padding: 8px;
+        text-align: left;
+        color: #f2f2f2;
+        border-radius: 8px;
+        &:hover { background-color: #3f3f3f; }
+      }
+    }
+    // widths for specific dropdowns and some specific style
+    #listsDropdown { width: 270px; }
+    #difficultyDropdown { 
+      width: 140px;
+      #easyDifficultyButton { color: #03b39e; }
+      #mediumDifficultyButton { color: #F3BF1E; }
+      #hardDifficultyButton { color: #A73D3F; }
+    }
+    #statusDropdown {
+      width: 160px;
+      span {
+        display: inline-block;
+        width: 20px;
+      }
+      li {
+        &:nth-of-type(1) { span { color: #A3A4A6; } }
+        &:nth-of-type(2) { span { color: #03b39e; } }
+        &:nth-of-type(3) { span { color: #F3BF1E; } }
+      }
+    }
+    // dropdown with gear
+    #optionsDropdown {
+      width: 200px;
+      right: 0;
+      // checkbox
+      span {
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        margin-right: 5px;
+        vertical-align: -12%;
+        background-color: #555;
+        border-radius: 3px;
+      }
+      & > li:nth-of-type(2) > button { color: #FFA116; }
+    }
+  }
+}
+// dropdown of second type and its contents
+#tagsDropdown {
+  width: 400px;
+  & > input {
+    margin-bottom: 20px;
+    width: 100%;
+    background-color: #454545;
+    color: #babbbe;
+    &:focus { background-color: #4e4e4e; }
+  }
+  ::placeholder { color: #757266; opacity: 1; }
+  :-ms-input-placeholder { color: #757266; }
+  ::-ms-input-placeholder { color: #757266; }
+  button {
+    &:nth-of-type(1),
+    &:nth-of-type(2) {
+      display: inline-block;
+      color: #b0b5b7;
+      margin-right: 15px;
+      font-size: 1rem;
+    }
+  }
+  button.chosen {
+    color: white;
+    text-decoration: 2px underline;
+    text-underline-offset: 8px;
+  }
+  button.blocked {
+    &:hover { cursor: not-allowed; }
+    &::after {
+      content: '🔒';
+      margin-left: 5px;
+      cursor: pointer;
+    }
+  }
+  hr {
+    border-color: #888;
+    border-bottom: none;
+    margin-bottom: 10px;
+  }
+}
+#anotherProblemTypesContainer {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  height: 93px;
+  // elements
+  & > a {
+    display: block;
+    flex-shrink: 0;
+    margin: 0 5px 10px 0;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    border-radius: 15px;
+    background-color: #454545;
+    color: #b0b5b7;
+    transition: 300ms;
+    &:hover { background-color: #4e4e4e; }
+  }
+}
+#anotherProblemTypesButton {
+  margin: 12px 0; 
+  color: rgb(10 132 255);
+}
+#searchResetButton {
+  width: 100%;
+  text-align: right;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+// container of green 'pick one' button
+#problemsParametersChoosersInnerSecond {
+  flex-shrink: 0;
+  #pickOneButton {
+    span:nth-of-type(1) {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      font-size: 1.8rem;
+      padding-top: 3px;
+      border-radius: 50%;
+      color: white;
+      background-color: #34C165;
+      box-shadow: 0px 0px 38px 1px rgba(52, 193, 101, 1);
+    }
+    span:nth-of-type(2) {
+      color: #288130;
+      margin-left: 10px;
+      vertical-align: 4px;
+    }
+  }
+}

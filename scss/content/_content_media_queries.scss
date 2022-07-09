@@ -9,4 +9,17 @@
   #theAside {
     width: 30%;
   }
+  #paginationAndPagesAmountContainer {
+    flex-direction: row;
+    justify-content: space-between;
+    & > #paginationContainer { margin: 0; }
+  }
+}
+
+@media(min-width: 820px) {
+  #paginationContainer { 
+    & > button.disappearing {
+      display: block;
+    }
+  }
 }

@@ -166,7 +166,6 @@ function renderProfileInfo() {
   <div id="mainContentWrapper">
 
     <main id="theMain">
-			
 		  <div id="slideBarAndButtons1">
 					<div class="slideButtonsContainer">
 						<button id="right1">&gt;</button>
@@ -253,59 +252,190 @@ function renderProfileInfo() {
       </div>
 
       <div id="problemsParametersChoosersContainer">
-        <div class="chooserTypeOne">
-          <button id="listsButton">Lists</button>
-          <ul id="listsDropdown">
-            <li><button>LeetCode Curated Algo 170</button></li>
-            <li><button>LeetCode Curated SQL 70</button></li>
-            <li><button>Top 100 Liked Questions</button></li>
-            <li><button>Top Interview Questions</button></li>
-            <li><button>Favorite</button></li>
-          </ul>
-        </div>
-        <div class="chooserTypeOne">
-          <button id="difficultyButton">Difficulty</button>
-          <ul id="difficultyDropdown">
-            <li><button id="easyDifficultyButton">Easy</button></li>
-            <li><button id="mediumDifficultyButton">Medium</button></li>
-            <li><button id="hardDifficultyButton">Hard</button></li>
-          </ul>
-        </div>
-        <div class="chooserTypeOne">
-          <button id="statusButton">Status</button>
-          <ul id="statusDropdown">
-            <li><button><span>─</span>Todo</button></li>
-            <li><button><span>✓</span>Solved</button></li>
-            <li><button><span>٨</span>Attempted</button></li>
-          </ul>
-        </div>
-        <div class="chooserTypeTwo">
-          <button id="tagsButton">Tags</button>
-          <div id="tagsDropdown">
-            <input type="text" placeholder="Filter topics">
-            <button id="topicsButton" class="chosen">Topics</button>
-            <button id="companiesButton" class="blocked">Companies</button>
-            <div id="anotherProblemTypesContainer">
-              <?php echo str_repeat('
-                <a href="#">Array</a>
-                <a href="#">String</a>
-                <a href="#">Math</a>
-                <a href="#">Dynamic Programming</a>
-                <a href="#">Sorting</a>
-                <a href="#">Depth-First Search</a>', 13); 
-              ?>
-            </div>
-            <button id="anotherProblemTypesButton">Expand</button>
-            <hr>
-            <button id="searchResetButton">↺ Reset</button>
+        <div id="problemsParametersChoosersInnerFirst">
+          <div class="chooserTypeOne">
+            <button id="listsButton">Lists</button>
+            <ul id="listsDropdown">
+              <li><button>LeetCode Curated Algo 170</button></li>
+              <li><button>LeetCode Curated SQL 70</button></li>
+              <li><button>Top 100 Liked Questions</button></li>
+              <li><button>Top Interview Questions</button></li>
+              <li><button>Favorite</button></li>
+            </ul>
           </div>
+          <div class="chooserTypeOne">
+            <button id="difficultyButton">Difficulty</button>
+            <ul id="difficultyDropdown">
+              <li><button id="easyDifficultyButton">Easy</button></li>
+              <li><button id="mediumDifficultyButton">Medium</button></li>
+              <li><button id="hardDifficultyButton">Hard</button></li>
+            </ul>
+          </div>
+          <div class="chooserTypeOne">
+            <button id="statusButton">Status</button>
+            <ul id="statusDropdown">
+              <li><button><span>─</span>Todo</button></li>
+              <li><button><span>✓</span>Solved</button></li>
+              <li><button><span>٨</span>Attempted</button></li>
+            </ul>
+          </div>
+          <div class="chooserTypeTwo">
+            <button id="tagsButton">Tags</button>
+            <div id="tagsDropdown">
+              <input type="text" placeholder="Filter topics">
+              <button id="topicsButton" class="chosen">Topics</button>
+              <button id="companiesButton" class="blocked">Companies</button>
+              <div id="anotherProblemTypesContainer">
+                <?php echo str_repeat('
+                  <a href="#">Array</a>
+                  <a href="#">String</a>
+                  <a href="#">Math</a>
+                  <a href="#">Dynamic Programming</a>
+                  <a href="#">Sorting</a>
+                  <a href="#">Depth-First Search</a>', 13); 
+                ?>
+              </div>
+              <button id="anotherProblemTypesButton">Expand</button>
+              <hr>
+              <button id="searchResetButton">↺ Reset</button>
+            </div>
+          </div>
+          <div class="chooserTypeOne">
+            <button id="optionsButton">⚙️</button>
+            <ul id="optionsDropdown">
+              <li><button><span></span>Show topic tags</button></li>
+              <li><button><span></span>Premium questions</button></li>
+            </ul>
+          </div>
+          <div>
+            <input type="text" placeholder="Search questions">
+          </div>
+        </div>
+        <div id="problemsParametersChoosersInnerSecond">
+          <button id="pickOneButton"><span>⤨</span><span>Pick One</span></button>
         </div>
       </div>
 
+      <div id="problemsTableContainer">
+          <table id="problemsTable">
+            <tr>
+              <th>Status</th>
+              <th class="changableOrder longestColumn">Title<span>↕</span></th>
+              <th>Solution</th>
+              <th class="changableOrder">Acceptance<span>↕</span></th>
+              <th class="changableOrder">Difficulty<span>↕</span></th>
+              <th>Frequency</th>
+            </tr>
+            <tr>
+              <td>📅</td>
+              <td class="longestColumn"><a href="#">1696. Jump Game VI</a></td>
+              <td>👌</td>
+              <td>43.9%</td>
+              <td class="tableMedium">Medium</td>
+              <td><span>🔒</span></td>
+            </tr>
+            <?php
+              for($i = 1; $i <= 50; $i += 5) {
+                echo '
+                  <tr>
+                    <td>✅</td>
+                    <td class="longestColumn"><a href="#">'.($i).'. Two Sum</a></td>
+                    <td>🎥</td>
+                    <td>48.8%</td>
+                    <td class="tableEasy">Easy</td>
+                    <td><span>🔒</span></td>
+                  </tr>
+                  <tr>
+                    <td>✅</td>
+                    <td class="longestColumn"><a href="#">'.($i + 1).'. Add Two Numbers</a></td>
+                    <td>👌</td>
+                    <td>39.0%</td>
+                    <td class="tableMedium">Medium</td>
+                    <td><span>🔒</span></td>
+                  </tr>
+                  <tr>
+                    <td>📈</td>
+                    <td class="longestColumn"><a href="#">'.($i + 2).'. Longest Substring Without Repeating Characters</a></td>
+                    <td></td>
+                    <td>33.5%</td>
+                    <td class="tableMedium">Medium</td>
+                    <td><span>🔒</span></td>
+                  </tr>
+                  <tr>
+                    <td>─</td>
+                    <td class="longestColumn"><a href="#">'.($i + 3).'. Median of Two Sorted Arrays</a></td>
+                    <td>─</td>
+                    <td>34.5%</td>
+                    <td class="tableHard">Hard</td>
+                    <td><span>🔒</span></td>
+                  </tr>
+                  <tr>
+                    <td>─</td>
+                    <td class="longestColumn"><a href="#">'.($i + 4).'. Longest Palindromic Substring</a></td>
+                    <td>👌</td>
+                    <td>32.2%</td>
+                    <td class="tableMedium">Medium</td>
+                    <td><span>🔒</span></td>
+                  </tr>';
+              }
+            ?>
+          </table>
+      </div>
+
+      <div id="paginationAndPagesAmountContainer">
+        <div id="pagesAmountContainer">
+          <button id="pagesAmountButton">50 / page<span>▾</span></button>
+          <div id="pagesAmountDropdown">
+            <button>20 / page</button>
+            <button class="chosen">50 / page ✔️</button>
+            <button>100 / page</button>
+          </div>
+        </div>
+
+        <div id="paginationContainer">
+          <button class="disabled">&lt;</button>
+          <button class="chosen">1</button>
+          <button>2</button>
+          <button>3</button>
+          <button class="disappearing">4</button>
+          <button class="disappearing">5</button>
+          <button class="disappearing">6</button>
+          <button class="disabled">...</button>
+          <button>47</button>
+          <button>&gt;</button>
+        </div>
+      </div>
     </main>
 
     <aside id="theAside">
-      <div style="background-color:red;width:100%;height:100px;"></div>
+      <div id="statsContainer">
+        <div>
+          <div>Session</div>
+          <a href="#"><span>Anonymous</span><span></span>⚙️</a>
+        </div>
+        <div>
+          <div id="progressWheelContainer">
+            <svg>
+              <circle cx="50" cy="50" r="45" stroke="#4a4a4a" stroke-width="3" fill="transparent"/>
+              
+            </svg>
+          </div>
+          <div id="difficultiesAmountContainer">
+            <div>
+              <div>Easy</div>
+              <div><span>52</span>/578</div>
+            </div>
+            <div>
+              <div>Medium</div>
+              <div><span>16</span>/1245</div>
+            </div>
+            <div>
+              <div>Hard</div>
+              <div><span>0</span>/511</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </aside>
 
   </div>
@@ -316,6 +446,7 @@ function renderProfileInfo() {
   <script defer src="js/classes/ProblemTypesContainerHandler.js"></script>
   <script defer src="js/classes/ProblemGroupsLinksHandler.js"></script>
   <script defer src="js/classes/ExpandHandler.js"></script>
+  <script defer src="js/classes/ProgressWheelHandler.js"></script>
   <script defer src="js/scripts/main.js"></script>
 
 </body>

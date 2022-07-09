@@ -57,3 +57,5 @@ const difficulty_dropdown_handler = new DropdownHandler('difficultyButton', 'dif
 const status_dropdown_handler = new DropdownHandler('statusButton', 'statusDropdown');
 const tags_dropdown_handler = new DropdownHandler('tagsButton', 'tagsDropdown');
 const expand_handler = new ExpandHandler();
+const options_handler = new DropdownHandler('optionsButton', 'optionsDropdown');
+const pages_amount_handler = new DropdownHandler('pagesAmountButton', 'pagesAmountDropdown');

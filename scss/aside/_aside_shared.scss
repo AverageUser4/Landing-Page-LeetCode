@@ -1,0 +1,62 @@
+#theAside {
+  height: 5000px;
+  background-color: blue;
+  padding: 0 20px;
+  // containers
+  & > div {
+    margin: 0 auto 20px;
+    background-color: #282828;
+    border-radius: 8px;
+  }
+}
+
+#statsContainer {
+  padding: 15px;
+  // session and anonymous button
+  & > div:first-of-type {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    // text that says 'Session'
+    & > div {
+      color: #bdbfc2;
+      font-size: 0.9rem;
+    }
+    // anonymous button
+    & > a {
+      position: relative;
+      padding: 5px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      background-color: #3e3e3e;
+      color: #9C9EA1;
+      & > span:first-of-type {
+        margin-right: 15px;
+      }
+      & > span:nth-of-type(2) {
+        position: absolute;
+        top: 0;
+        right: 28px;
+        display: inline-block;
+        width: 1px;
+        height: 25px;
+        background-color: #282828;
+      }
+    }
+  }
+  // progress wheel and difficulties
+  & > div:nth-of-type(2) {
+    display: flex;
+  }
+}
+
+#progressWheelContainer {
+  width: 100px;
+  height: 100px;
+  & > svg {
+    width: 100%;
+    height: 100%;
+  }
+  background-color: red;
+}

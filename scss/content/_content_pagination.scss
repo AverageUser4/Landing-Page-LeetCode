@@ -1,0 +1,69 @@
+#paginationAndPagesAmountContainer {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+}
+
+#pagesAmountContainer {
+  position: relative;
+}
+#pagesAmountButton {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  background-color: #323232;
+  color: #B6B7BA;
+  &:hover { background-color: #3b3b3b; }
+  & > span { margin-left: 12px; }
+}
+#pagesAmountDropdown {
+  opacity: 0;
+  z-index: -1;
+  transition: 300ms;
+  position: absolute;
+  top: calc(100% + 3px);
+  padding: 8px;
+  width: 120%;
+  background-color: #303030;
+  border-radius: 5px;
+  & > button {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    color: #fff;
+    border-radius: 3px;
+    text-align: left;
+    &:hover { background-color: #3f3f3f; }
+  }
+}
+
+#paginationContainer {
+  display: flex;
+  margin-bottom: 20px;
+  & > button {
+    display: block;
+    margin-left: 5px;
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+    background-color: #303030;
+    color: #C2C4C7;
+    border-radius: 3px;
+    &:hover { background-color: #3b3b3b; }
+  }
+  & > button.chosen {
+    background-color: #5c5c5c;
+    color: white;
+    &:hover { cursor: default; }
+  }
+  & > button.disabled {
+    background-color: #232323;
+    color: #5C5D5E;
+    &:hover { cursor: default; }
+  }
+  & > button.disappearing {
+    display: none;
+  }
+}
