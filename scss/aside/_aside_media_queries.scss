@@ -3,3 +3,27 @@
     padding: 0 20px 0 0;
   }
 }
+
+@media(min-width: 680px) and (max-width: 800px) {
+  // make gear disappear form button so there's enough space
+  #statsContainer {
+    & > div:first-of-type {
+      & > a {
+        & > span {
+          display: none !important;
+        }
+      }
+    }
+  }
+}
+
+@media(min-width: 940px) {
+  #statsContainer {
+    & > div:nth-of-type(2) {
+      flex-direction: row;
+    }
+  }
+  #solved-of-difficulty-container {
+    padding: 15px 0 15px 15px;
+  }
+}

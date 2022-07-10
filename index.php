@@ -408,34 +408,118 @@ function renderProfileInfo() {
     </main>
 
     <aside id="theAside">
+
       <div id="statsContainer">
+
         <div>
           <div>Session</div>
-          <a href="#"><span>Anonymous</span><span></span>⚙️</a>
+          <a href="#">Anonymous<span></span><span>⚙️</span></a>
         </div>
+
         <div>
+
           <div id="progressWheelContainer">
+
             <svg>
-              <circle cx="50" cy="50" r="45" stroke="#4a4a4a" stroke-width="3" fill="transparent"/>
-              
+              <circle cx="50" cy="50" r="45" stroke="#4a4a4a" stroke-width="3" fill="none"/>
+              <path id="arc-easy" stroke="#00B8A3" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <path id="arc-medium" stroke="#FFC01E" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <path id="arc-hard" stroke="#A73D3F" stroke-width="3" fill="none" stroke-linecap="round"/>
             </svg>
+
+            <div id="pw-content-container">
+              <div class="pw-basic-view">
+                <div>All</div>
+                <div>68</div>
+                <div>2338</div>
+              </div>
+            </div>
+
           </div>
-          <div id="difficultiesAmountContainer">
-            <div>
+
+          <div id="solved-of-difficulty-container">
+
+            <div id="stats-easy-container">
               <div>Easy</div>
-              <div><span>52</span>/578</div>
+              <div class="sodc-solved-amount">52<span>/578</span></div>
             </div>
-            <div>
+
+            <div id="stats-medium-container">
               <div>Medium</div>
-              <div><span>16</span>/1245</div>
+              <div class="sodc-solved-amount">16<span>/1245</span></div>
             </div>
-            <div>
+
+            <div id="stats-hard-container">
               <div>Hard</div>
-              <div><span>0</span>/511</div>
+              <div class="sodc-solved-amount">0<span>/511</span></div>
             </div>
+
           </div>
+
         </div>
+
       </div>
+
+      <div id="study-plan-container">
+
+        <a href="#">
+
+          <div>📅</div>
+
+          <div>
+            <div>Study Plan</div>
+            <div>Complete and win badges</div>
+          </div>
+
+          <div>&gt;</div>
+
+        </a>
+
+      </div>
+
+      <div id="featured-container">
+
+        <div>Featured Lists</div>
+
+        <div id="fc-items">
+					<a href="#"><span>💻</span>Top Interview Questions</a>
+					<a href="#"><span>🔝</span>Top 100 Liked Questions</a>
+					<a class="fc-locked" href="#"><span>🇫</span>Top Facebook Questions</a>
+					<a class="fc-locked" href="#"><span>🇬</span>Top Google Questions</a>
+					<a class="fc-locked" href="#"><span>🅰️</span>Top Amazon Questions</a>
+					<a href="#"><span>🥵</span>LeetCode Curated Algo 170</a>
+					<a class="fc-locked" href="#"><span>Ⓜ️</span>Top Microsoft Questions</a>
+					<a href="#"><span>🤖</span>LeetCode Curated SQL 70</a>
+				</div>
+
+				<button id="fc-show-button">▾ Show More</button>
+
+      </div>
+
+			<div id="calendar-container">
+
+				<div>
+					<div>Day 10</div>
+					<div>06:17:56 left</div>
+					<div>
+						<button id="calendar-left-button">&lt;</button>
+						<button id="calendar-right-button">&gt;</button>
+					</div>
+				</div>
+
+				<div style="display: grid; grid-template-columns: auto auto auto auto auto auto auto;">
+
+				  <div>S</div><div>M</div><div>T</div>
+					<div>W</div><div>T</div><div>F</div><div>S</div>
+					<?php
+						echo str_repeat('<div></div>', 5);
+						for($i = 1; $i <= 31; $i++) {	echo "<div>$i</div>";	}	
+					?>
+
+				</div>
+
+			</div>
+
     </aside>
 
   </div>
@@ -447,6 +531,7 @@ function renderProfileInfo() {
   <script defer src="js/classes/ProblemGroupsLinksHandler.js"></script>
   <script defer src="js/classes/ExpandHandler.js"></script>
   <script defer src="js/classes/ProgressWheelHandler.js"></script>
+  <script defer src="js/classes/OtherExpandHandler.js"></script>
   <script defer src="js/scripts/main.js"></script>
 
 </body>

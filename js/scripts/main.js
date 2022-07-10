@@ -59,3 +59,7 @@ const tags_dropdown_handler = new DropdownHandler('tagsButton', 'tagsDropdown');
 const expand_handler = new ExpandHandler();
 const options_handler = new DropdownHandler('optionsButton', 'optionsDropdown');
 const pages_amount_handler = new DropdownHandler('pagesAmountButton', 'pagesAmountDropdown');
+
+const progress_wheel_handler = new ProgressWheelHandler();
+
+const other_expand_handler = new OtherExpandHandler();

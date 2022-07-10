@@ -1,0 +1,152 @@
+@use '../var';
+
+#statsContainer {
+  padding: 15px;
+  // session and anonymous button
+  & > div:first-of-type {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    // text that says 'Session'
+    & > div {
+      color: #bdbfc2;
+      font-size: 0.9rem;
+    }
+    // anonymous button
+    & > a {
+      position: relative;
+      padding: 5px;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      background-color: #3e3e3e;
+      color: #9C9EA1;
+      & > span:nth-of-type(1) {
+        position: absolute;
+        top: 0;
+        right: 28px;
+        display: inline-block;
+        width: 1px;
+        height: 25px;
+        background-color: #282828;
+      }
+      & > span:nth-of-type(2) {
+        margin-left: 15px;
+      }
+    }
+  }
+  // progress wheel and difficulties
+  & > div:nth-of-type(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+#progressWheelContainer {
+  flex-shrink: 0;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  // contains progress wheel
+  & > svg {
+    width: 100%;
+    height: 100%;
+    & > path:hover {
+      stroke-width: 5px;
+      cursor: pointer;
+    }
+  }
+  // div containing div containing contents of progress wheel
+  & > div {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    user-select: none;
+    & > div { height: 100%; }
+  }
+}
+
+// default contents of progress wheel
+.pw-basic-view {
+  // text saying 'All'
+  div:nth-of-type(1) {
+    margin: 3px 0 2px;
+    font-size: 0.75rem;
+    color: #818385;
+  }
+  // amount of solved problems
+  div:nth-of-type(2) {
+    font-size: 1.4rem;
+    margin-bottom: 7px;
+    text-decoration: 1px underline #4a4a4a;
+    text-underline-offset: 5px;
+  }
+  // amount of all problems
+  div:nth-of-type(3) {
+    font-size: 0.75rem;
+    color: #777;
+  }
+}
+
+// there's one general acceptance view and three difficulty-based,
+// the only difference between them is color of percentage
+.pw-acceptance-view {
+  & > div:nth-of-type(1) {
+    margin: 12px 0 5px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    & > span {
+      font-size: 0.7rem;
+    }
+  }
+  & > div:nth-of-type(2) {
+    font-size: 0.7rem;
+    color: #888;
+  }
+}
+.pw-easy-acceptance-view { & > div:nth-of-type(1) { color: var.$col-easy; } }
+.pw-medium-acceptance-view { & > div:nth-of-type(1) { color: var.$col-medium; } }
+.pw-hard-acceptance-view { & > div:nth-of-type(1) { color: var.$col-hard; } }
+
+.pw-no-submission {
+  margin-top: 13px;
+  line-height: 130%;
+  font-size: 0.75rem;
+  color: #777;
+}
+
+// container of difficulties and amounts of solved questions
+#solved-of-difficulty-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100px;
+  padding: 15px 0;
+  // 3 divs containing difficulty-amount pair
+  & > div {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    &:hover { cursor: pointer; }
+  }
+}
+
+// styl for amount of solved problems
+.sodc-solved-amount {
+  color: #bbb;
+  font-weight: bold;
+  & > span {
+    margin-left: 2px;
+    font-size: 0.85rem;
+    color: #62625D;
+  }
+}
+
+#stats-easy-container { color: var.$col-easy; }
+#stats-medium-container { color: var.$col-medium; }
+#stats-hard-container { color: var.$col-hard; }

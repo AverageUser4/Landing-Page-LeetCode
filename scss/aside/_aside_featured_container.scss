@@ -1,0 +1,41 @@
+#featured-container {
+  padding: 15px 5px;
+  // text saying featured lists
+  & > div:nth-of-type(1) {
+    color: #BDBFC2;
+    padding: 5px 0 10px 8px;
+    font-size: 0.95rem;
+  }
+  // container of button-like links
+  & > div:nth-of-type(2) {
+    height: 136px;
+    overflow: hidden;
+  }
+  // button-like links
+  & > div:nth-of-type(2) > a {
+    display: block;
+    margin-bottom: 5px;
+    padding: 5px 30px 5px 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    &:hover { background-color: #383838; }
+    & > span {
+      margin-right: 5px;
+      font-size: 2rem;
+      vertical-align: -5px;
+    }
+  }
+  // button to show all or hide
+  & > button {
+    margin-top: 15px;
+    width: 100%;
+    color: #888;
+    font-size: 0.9rem;
+    transition: 300ms;
+    &:hover {
+      color: #aaa;
+    }
+  }
+}

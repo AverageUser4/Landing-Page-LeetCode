@@ -1,3 +1,4 @@
 hovering over invisible dropdowns gives visible
 effect (cursor pointer, highlight of button, etc.)
-use of display: none is necessary
+applies only to interview and store dropdowns on header,
+it probalby happens because dropdowns are inside button tags
