@@ -1,0 +1,100 @@
+#calendar-container {
+  padding: 15px;
+}
+
+// the part on very top (above grid with dates)
+.cc-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  // day and countdown
+  & > div:nth-of-type(1) {
+    display: flex;
+    align-items: center;
+    // day
+    & > div:nth-of-type(1) {
+      font-size: 0.9rem;
+      color: #BCBDBD;
+      margin-right: 5px;
+    }
+    // countdown
+    & > div:nth-of-type(2) {
+      font-size: 0.7rem;
+      color: #888;
+    }
+  }
+  // containers of buttons used to switch month
+  & > div:nth-of-type(2) {
+    & > button {
+      font-size: 0.8rem;
+      color: #BCBDBD;
+    }
+    & > .inactive {
+      color: #888;
+      &:hover { cursor: default; }
+    }
+    & > span {
+      margin-right: 5px;
+    }
+  }
+}
+
+// contains calendar itself (grid)
+.cc-calendar {
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: auto auto auto auto auto auto auto;
+  grid-row-gap: 5px;
+  // grid elements
+  & > div {
+    width: 28px;
+    height: 28px;
+    padding-top: 7.6px;
+    font-size: 0.8rem;
+    text-align: center;
+    color: #aaa;
+    border-radius: 50%;
+  }
+  // letters representing days
+  & > div:nth-child(n):nth-child(-n+7) {
+    color: #666;
+  }
+  // days
+  & > div:nth-child(n + 13):nth-child(-n+43) {
+    &:hover {
+      background-color: #3e3e3e;
+      cursor: pointer;
+    }
+  }
+}
+
+// grid element marked as missed
+.cc-missed {
+  position: relative;
+  &::after {
+    content: '🔴';
+    position: absolute;
+    top: 19px;
+    left: 12px;
+    font-size: 0.2rem;
+  }
+}
+
+.cc-solved {
+  position: relative;
+  &::after {
+    content: '☑️';
+    position: absolute;
+    top: 7.6px;
+    left: 4px;
+    font-size: 1rem;
+  }
+}
+
+// grid element marked as today
+.cc-current {
+  background-color: #2CBB5D;
+  color: white !important;
+  &:hover { background-color: #4cc475 !important; }
+}

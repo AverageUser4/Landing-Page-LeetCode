@@ -63,3 +63,5 @@ const pages_amount_handler = new DropdownHandler('pagesAmountButton', 'pagesAmou
 const progress_wheel_handler = new ProgressWheelHandler();
 
 const other_expand_handler = new OtherExpandHandler();
+
+const timer_handler = new TimerHandler();

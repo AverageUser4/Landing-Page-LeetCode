@@ -498,25 +498,72 @@ function renderProfileInfo() {
 
 			<div id="calendar-container">
 
-				<div>
-					<div>Day 10</div>
-					<div>06:17:56 left</div>
+				<div class="cc-top">
+
+          <div>
+            <div>Day 10</div>
+            <div><span id="cc-counter">06:17:05</span> left</div>
+          </div>
+
 					<div>
-						<button id="calendar-left-button">&lt;</button>
-						<button id="calendar-right-button">&gt;</button>
+						<button>&lt;</button>
+            <span></span>
+						<button class="inactive">&gt;</button>
 					</div>
+
 				</div>
 
-				<div style="display: grid; grid-template-columns: auto auto auto auto auto auto auto;">
+				<div class="cc-calendar">
 
 				  <div>S</div><div>M</div><div>T</div>
 					<div>W</div><div>T</div><div>F</div><div>S</div>
 					<?php
 						echo str_repeat('<div></div>', 5);
-						for($i = 1; $i <= 31; $i++) {	echo "<div>$i</div>";	}	
+						for($i = 1; $i <= 31; $i++) {
+              if($i === 6) {
+                echo "<div class='cc-solved'>$i</div>";
+              }
+              else if($i < 11)
+                echo "<div class='cc-missed'>$i</div>";
+              else if($i === 11)
+                echo "<div class='cc-current'>$i</div>";
+              else
+                echo "<div>$i</div>";
+            }	
 					?>
 
 				</div>
+
+        <div class="cc-weekly-premium">
+
+          <div>
+            <div>Weekly Premium <span>?</span></div>
+            <div>3 days left</div>
+          </div>
+
+          <div>
+            <button class="wp-past">W1</button>
+            <button class="wp-current">W1</button>
+            <div>W3</div>
+            <div>W4</div>
+            <div>W5</div>
+          </div>
+
+        </div>
+
+        <div class="cc-bottom">
+
+            <div>
+              <img src="resources/premium.png">
+              <span>0</span>
+              <a href="#">Redeem</a>
+            </div>
+
+            <div>
+              Rules
+            </div>
+
+        </div>
 
 			</div>
 
@@ -532,6 +579,7 @@ function renderProfileInfo() {
   <script defer src="js/classes/ExpandHandler.js"></script>
   <script defer src="js/classes/ProgressWheelHandler.js"></script>
   <script defer src="js/classes/OtherExpandHandler.js"></script>
+  <script defer src="js/classes/TimerHandler.js"></script>
   <script defer src="js/scripts/main.js"></script>
 
 </body>

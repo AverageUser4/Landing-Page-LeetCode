@@ -818,7 +818,7 @@ input[type=text] {
   border-radius: 50%;
   color: white;
   background-color: #34C165;
-  box-shadow: 0px 0px 38px 1px rgb(52, 193, 101);
+  box-shadow: 0px 0px 15px 0px rgb(52, 193, 101);
 }
 #problemsParametersChoosersInnerSecond #pickOneButton span:nth-of-type(2) {
   color: #288130;
@@ -1250,6 +1250,96 @@ td.tableHard {
 }
 #featured-container > button:hover {
   color: #aaa;
+}
+
+#calendar-container {
+  padding: 15px;
+}
+
+.cc-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.cc-top > div:nth-of-type(1) {
+  display: flex;
+  align-items: center;
+}
+.cc-top > div:nth-of-type(1) > div:nth-of-type(1) {
+  font-size: 0.9rem;
+  color: #BCBDBD;
+  margin-right: 5px;
+}
+.cc-top > div:nth-of-type(1) > div:nth-of-type(2) {
+  font-size: 0.7rem;
+  color: #888;
+}
+.cc-top > div:nth-of-type(2) > button {
+  font-size: 0.8rem;
+  color: #BCBDBD;
+}
+.cc-top > div:nth-of-type(2) > .inactive {
+  color: #888;
+}
+.cc-top > div:nth-of-type(2) > .inactive:hover {
+  cursor: default;
+}
+.cc-top > div:nth-of-type(2) > span {
+  margin-right: 5px;
+}
+
+.cc-calendar {
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: auto auto auto auto auto auto auto;
+  grid-row-gap: 5px;
+}
+.cc-calendar > div {
+  width: 28px;
+  height: 28px;
+  padding-top: 7.6px;
+  font-size: 0.8rem;
+  text-align: center;
+  color: #aaa;
+  border-radius: 50%;
+}
+.cc-calendar > div:nth-child(n):nth-child(-n+7) {
+  color: #666;
+}
+.cc-calendar > div:nth-child(n+13):nth-child(-n+43):hover {
+  background-color: #3e3e3e;
+  cursor: pointer;
+}
+
+.cc-missed {
+  position: relative;
+}
+.cc-missed::after {
+  content: "🔴";
+  position: absolute;
+  top: 19px;
+  left: 12px;
+  font-size: 0.2rem;
+}
+
+.cc-solved {
+  position: relative;
+}
+.cc-solved::after {
+  content: "☑️";
+  position: absolute;
+  top: 7.6px;
+  left: 4px;
+  font-size: 1rem;
+}
+
+.cc-current {
+  background-color: #2CBB5D;
+  color: white !important;
+}
+.cc-current:hover {
+  background-color: #4cc475 !important;
 }
 
 @media (min-width: 680px) {
