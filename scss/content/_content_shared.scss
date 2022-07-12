@@ -2,10 +2,10 @@
   display: block;
   margin: 80px auto 0;
   width: min(100%, 1200px);
-  height: 48px;
 }
 #theMain {
   padding: 0 20px;
+  margin-bottom: 20px;
   & > hr {
     border-bottom: none;
     border-color: #3d3d3d;

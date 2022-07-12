@@ -1,0 +1,79 @@
+#aside-companies-container {
+  padding: 15px 15px 0;
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-size: 0.9rem;
+    color: #aaa;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    font-size: 0.9rem;
+    color: #aaa;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    font-size: 0.9rem;
+    color: #aaa;
+  }
+}
+
+.acc-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  // text saying 'Companies'
+  & > div:nth-of-type(1) { color: #bbb; }
+  // left and right button
+  button {
+    width: 1.7rem;
+    height: 1.7rem;
+    font-size: 1.5rem;
+    color: #ccc;
+    background-color: #383838;
+    font-weight: bold;
+    border-radius: 5px;
+    &:hover { background-color: #343434; }
+  }
+  // disabled button
+  button.acc-button-disabled {
+    color: #777;
+    &:hover { cursor: default; background-color: #383838; }
+  }
+}
+
+// text input
+.acc-input {
+  width: 100%;
+  background-color: #3E3E3E;
+  font-size: 3rem;
+  color: #aaa;
+}
+
+// contains links to company problems
+.acc-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  // elements
+  & > a {
+    display: block;
+    margin: 0 15px 15px 0;
+    padding: 5px 10px;
+    flex-shrink: 0;
+    background-color: #3E3E3E;
+    color: #aaa;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    &:hover { background-color: #474747; }
+    // amount
+    & > span {
+      padding: 1px 5px;
+      vertical-align: 1px;
+      background-color: #FFA116;
+      color: #111;
+      font-size: 0.7rem;
+      border-radius: inherit;
+    }
+  }
+}

@@ -544,9 +544,9 @@ function renderProfileInfo() {
           <div>
             <button class="wp-past">W1</button>
             <button class="wp-current">W1</button>
-            <div>W3</div>
-            <div>W4</div>
-            <div>W5</div>
+            <button class="wp-disabled">W3</button>
+            <button class="wp-disabled">W4</button>
+            <button class="wp-disabled">W5</button>
           </div>
 
         </div>
@@ -567,9 +567,70 @@ function renderProfileInfo() {
 
 			</div>
 
+      <div id="aside-companies-container">
+
+        <div class="acc-top">
+
+          <div>Companies</div>
+
+          <div>
+            <button class="acc-button-disabled">&lt;</button>
+            <button>&gt;</button>
+          </div>
+
+        </div>
+
+        <input class="acc-input" type="text" placeholder="Search for tags...">    
+
+        <div class="acc-list">
+
+          <?php 
+            echo str_repeat('
+              <a href="#">Amazon <span>1211</span></a>
+              <a href="#">Google <span>1171</span></a>
+              <a href="#">Microsoft <span>764</span></a>
+              <a href="#">Facebook <span>721</span></a>
+              <a href="#">Apple <span>652</span></a>
+            ', 8);
+          ?>
+
+        </div>
+        
+      </div>
+
     </aside>
 
   </div>
+
+  <footer id="the-footer">
+
+    <div class="tf-copyright-and-links">
+
+      <div>
+        Copyright © 2022 LeetCode
+      </div>
+
+      <div>
+
+        <a href="#">Help Center</a>
+        <a href="#">Jobs</a>
+        <a href="#">Bug Bounty</a>
+        <a href="#">Assessment</a>
+        <a href="#">Students</a>
+        <a href="#">Terms</a>
+        <a href="#">Privacy Policy</a>
+
+      </div>
+
+    </div>
+    
+    <div class="tf-united-states">
+      <img src="resources/usa_flag.png">
+    <div>United States</div>
+
+</div>
+
+</footer>
 
   <script defer src="js/classes/DropdownHandler.js"></script>
   <script defer src="js/classes/SolidDropdownHandler.js"></script>
@@ -580,6 +641,7 @@ function renderProfileInfo() {
   <script defer src="js/classes/ProgressWheelHandler.js"></script>
   <script defer src="js/classes/OtherExpandHandler.js"></script>
   <script defer src="js/classes/TimerHandler.js"></script>
+  <script defer src="js/classes/StickyHandler.js"></script>
   <script defer src="js/scripts/main.js"></script>
 
 </body>

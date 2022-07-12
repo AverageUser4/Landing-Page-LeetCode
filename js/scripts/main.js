@@ -65,3 +65,5 @@ const progress_wheel_handler = new ProgressWheelHandler();
 const other_expand_handler = new OtherExpandHandler();
 
 const timer_handler = new TimerHandler();
+
+const sticky_handler = new StickyHandler();

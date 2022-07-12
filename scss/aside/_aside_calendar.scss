@@ -98,3 +98,99 @@
   color: white !important;
   &:hover { background-color: #4cc475 !important; }
 }
+
+// box promoting premium
+.cc-weekly-premium {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #503F23;
+  border-radius: inherit;
+  // weekly premium and x days left
+  & > div:nth-of-type(1) {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    // weekly premium
+    & > div:nth-of-type(1) {
+      color: #FDA016;
+      font-family: cursive, sans-serif;
+      font-weight: bold;
+      & > span {
+        display: inline-block;
+        box-sizing: border-box;
+        line-height: 0.8rem;
+        font-size: 0.8rem;
+        width: 0.8rem;
+        height: 0.8rem;
+        padding: 1px 0 0 1.5px;
+        border: 1px solid #FDA016;
+        border-radius: 50%;
+        margin-left: 3px;
+      }
+    }
+    // x days left
+    & > div:nth-of-type(2) {
+      color: #83796c;
+      font-size: 0.85rem;
+    }
+  }
+  // w1, w2, w3, w4, w5
+  & > div:nth-of-type(2) {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    // elements
+    & > button {
+      display: block;
+      font-size: 1.1rem;
+      width: 1.7rem;
+      height: 1.7rem;
+      padding-top: 5px;
+      padding-bottom: 0;
+      line-height: 100%;
+      text-align: left;
+      border-radius: 50%;
+      font-family: cursive, sans-serif;
+    }
+  }
+}
+
+// styles for w1, w2, w3, w4, w5
+.wp-past {
+  color: #FDA016;
+}
+.wp-current {
+  background-color: #FDA016;
+  color: white;
+}
+.wp-disabled {
+  color: #aaa;
+  &:hover { cursor: default; }
+}
+
+.cc-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  color: #888;
+  font-size: 0.85rem;
+  // icon and redeem
+  & > div:nth-of-type(1) {
+    display: flex;
+    align-items: center;
+    & > img {
+      display: block;
+      height: 1.1rem;
+      &:hover { cursor: default; }
+    }
+    // 0
+    & > span { margin: 0 8px; }
+    // redeem
+    & > a { color: #2CA344; }
+  }
+  // rules
+  & > div:nth-of-type(2) {
+    &:hover { cursor: pointer; }
+  }
+}
