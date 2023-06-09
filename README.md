@@ -1,5 +1,5 @@
-# LeetCode Problems Landing Page
+# LeetCode Problems Landing Page Remake
 
-No screenshot, because don't want to install PHP now.
+![showcase](../assets/showcase.jpg?raw=true)
 
 Based on: https://leetcode.com/problemset/all/
